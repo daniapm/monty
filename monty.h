@@ -24,23 +24,47 @@
 
 typedef struct stack_s
 {
-    int n;
-    struct stack_s *prev;
-    struct stack_s *next;
+	int n;
+	struct stack_s *prev;
+	struct stack_s *next;
 } sttack_t;
+
+/**
+ * struct instruction_s - opcode and its function
+ * @opcode: the opcode
+ * @f: function to handle the opcode
+ *
+ * Description: opcode and its function
+ * for stack, queues, LIFO, FIFO Holberton project
+ */
 
 typedef struct instruction_s
 {
-    char *opcode;
-    void (*f)(stack_t **stack, unsigned int line_number);
+	char *opcode;
+	void (*f)(sttack_t **stack, unsigned int line_number);
 } instruction_t;
 
-sttack_t push_t(sttack_t **head, const int n, int line_number);
-sttack_t *add_node(int n);
-sttack_t pall_t(const sttack_t *h, int line_number);
-int pop(sttack_t **head);
-void swap(sttack_t *x, sttack_t *y);
-/*int tok_s(char *line);*/
-void op_struck(stack_t **stack, unsigned int line_number, char *opcode);
+/**
+ * struct my_struck_s - doubly linked list representation of a stack (or queue)
+ * @dato: integer
+ * Description: doubly linked list node structure
+ * for stack, queues, LIFO, FIFO Holberton project
+ */
+typedef struct my_struck_s
+{
+	int dato;
+} my_struck_t;
+my_struck_t variable_global;
 
+void push_t(sttack_t **head, unsigned int line_number);
+sttack_t *add_node(int n);
+void pall_t(sttack_t **h, unsigned int line_number);
+void pop_t(sttack_t **head, unsigned int line_number);
+void swap_nodes(sttack_t **head, unsigned int line_number);
+/*int tok_s(char *line);*/
+void op_struck(sttack_t **stack, unsigned int line_number, char **opcode);
+char **tok_s(char *command);
+int count_words(char *string);
+void pint_t(sttack_t **head, unsigned int line_number);
+void nop_t(sttack_t **stack, unsigned int line_number);
 #endif
