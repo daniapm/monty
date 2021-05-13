@@ -22,7 +22,7 @@ void op_struck(sttack_t **stack, unsigned int line_number, char **opcode)
 		{"nop", nop_t},
 		{NULL, NULL}};
 
-	if (opcode[0] == '$')
+	if (strcmp(opcode[0], "$") == 0)
 		return;
 
 	while (func_list[i].opcode != NULL)
