@@ -33,7 +33,6 @@ void op_struck(sttack_t **stack, unsigned int line_number, char **opcode)
 
 			if (strcmp(opcode[0], "push") == 0)
 			{
-
 				j = atoi(opcode[1]);
 				variable_global.dato = j;
 			}

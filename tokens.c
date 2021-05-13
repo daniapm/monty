@@ -25,6 +25,7 @@ char **tok_s(char *command)
 	if (tokens == NULL)
 	{
 		fprintf(stderr, "Error: malloc failed\n");
+		free(command);
 		exit(EXIT_FAILURE);
 	}
 
