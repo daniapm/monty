@@ -21,21 +21,8 @@ if (variable_global.dato < '0' || variable_global.dato > '9')
 {
 
 fprintf(stderr, "L%d: usage: push integer\n", line_number);
-if (*head)
-{
-	sttack_t *temp;
 
-	while (head)
-	{
-	temp = *head;
-	*head = (*head)->next;
-	free(temp);
-}
-}
-	exit(EXIT_FAILURE);
-}
 */
-
 	nuevo_nodo = add_node(variable_global.dato);
 	if (nuevo_nodo != NULL)
 	{
@@ -90,12 +77,6 @@ void pop_t(sttack_t **head, unsigned int line_number)
 	if (head == NULL || *head == NULL)
 	{
 		fprintf(stderr, "L%d: can't pop an empty stack\n", line_number);
-		while (head != NULL)
-		{
-			new_nodo = *head;
-			*head = (*head)->next;
-			free(new_nodo);
-		}
 		exit(EXIT_FAILURE);
 	}
 	new_nodo = *head;
@@ -124,12 +105,6 @@ void swap_nodes(sttack_t **head, unsigned int line_number)
 	if (head == NULL || *head == NULL || (*head)->next == NULL)
 	{
 		fprintf(stderr, "L%d: can't swap, stack too short\n", line_number);
-		while (head != NULL)
-		{
-			tmp = *head;
-			tmp = (*head)->next;
-			free(tmp);
-		}
 		exit(EXIT_FAILURE);
 	}
 	tmp = (*head)->next;

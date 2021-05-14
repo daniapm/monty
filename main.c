@@ -27,15 +27,6 @@ int main(int argc, char *argv[])
 	{
 		fprintf(stderr, "Error: Can't open file %s\n", argv[1]);
 		exit(EXIT_FAILURE);
-		sttack_t *node = stack;
-
-		while (stack != NULL)
-		{
-			node = stack;
-			stack = stack->next;
-			free(node);
-		}
-		exit(EXIT_FAILURE);
 	}
 
 	while ((nread = getline(&line, &len, stream)) != -1)
