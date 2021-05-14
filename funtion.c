@@ -10,7 +10,6 @@
 
 void op_struck(sttack_t **stack, unsigned int line_number, char **opcode)
 {
-
 	int i = 0, j = 0;
 
 	instruction_t func_list[] = {
@@ -24,16 +23,18 @@ void op_struck(sttack_t **stack, unsigned int line_number, char **opcode)
 
 	if (strcmp(opcode[0], "$") == 0)
 		return;
-
 	while (func_list[i].opcode != NULL)
 	{
-
 		if (strcmp(opcode[0], func_list[i].opcode) == 0)
 		{
-
 			if (strcmp(opcode[0], "push") == 0)
 			{
 				if (opcode[1] == NULL)
+				{
+					fprintf(stderr, "L%d: usage: push integer\n", line_number);
+					exit(EXIT_FAILURE);
+				}
+				if ((is_number(opcode[1]) == 0))
 				{
 					fprintf(stderr, "L%d: usage: push integer\n", line_number);
 					exit(EXIT_FAILURE);
@@ -46,7 +47,6 @@ void op_struck(sttack_t **stack, unsigned int line_number, char **opcode)
 		}
 		i++;
 	}
-
 	printf("%u: unknown instruction %s\n", line_number, opcode[1]);
 	exit(EXIT_FAILURE);
 }
