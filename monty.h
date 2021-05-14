@@ -11,7 +11,7 @@
 #include <signal.h>
 #include <errno.h>
 #include <sys/stat.h>
-
+extern char *line;
 /**
  * struct stack_s - doubly linked list representation of a stack (or queue)
  * @n: integer

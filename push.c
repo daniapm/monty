@@ -14,23 +14,28 @@
 void push_t(sttack_t **head, unsigned int line_number)
 {
 	sttack_t *nuevo_nodo;
+	(void)line_number;
+	/**
+*
+if (variable_global.dato < '0' || variable_global.dato > '9')
+{
 
-	if (variable_global.dato < '0' || variable_global.dato > '9')
+fprintf(stderr, "L%d: usage: push integer\n", line_number);
+if (*head)
+{
+	sttack_t *temp;
+
+	while (head)
 	{
-		fprintf(stderr, "L%d: usage: push integer\n", line_number);
-		if (*head)
-		{
-			sttack_t *temp;
+	temp = *head;
+	*head = (*head)->next;
+	free(temp);
+}
+}
+	exit(EXIT_FAILURE);
+}
+*/
 
-			while (head)
-			{
-				temp = *head;
-				*head = (*head)->next;
-				free(temp);
-			}
-		}
-		exit(EXIT_FAILURE);
-	}
 	nuevo_nodo = add_node(variable_global.dato);
 	if (nuevo_nodo != NULL)
 	{
