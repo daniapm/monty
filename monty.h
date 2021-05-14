@@ -68,5 +68,6 @@ int count_words(char *string);
 void pint_t(sttack_t **head, unsigned int line_number);
 void nop_t(sttack_t **stack, unsigned int line_number);
 void free_stack(sttack_t *head);
+int is_number(char *num);
 
 #endif

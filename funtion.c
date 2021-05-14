@@ -5,7 +5,7 @@
  * @stack: variable
  * @line_number: variable
  * @opcode: variable
- * Return: 0
+ * Return: 1
  */
 
 void op_struck(sttack_t **stack, unsigned int line_number, char **opcode)
