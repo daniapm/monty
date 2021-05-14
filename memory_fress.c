@@ -17,8 +17,3 @@ void free_stack(sttack_t *head)
 		free(new);
 	}
 }
-
-/**
- * free_list - free's a stack
- * @head: pointer to head
- */
