@@ -33,15 +33,20 @@ void op_struck(sttack_t **stack, unsigned int line_number, char **opcode)
 
 			if (strcmp(opcode[0], "push") == 0)
 			{
+				if (opcode[1] == NULL)
+				{
+					fprintf(stderr, "L%d: usage: push integer\n", line_number);
+					exit(EXIT_FAILURE);
+				}
 				j = atoi(opcode[1]);
 				variable_global.dato = j;
 			}
-
 			func_list[i].f(stack, line_number);
 			return;
 		}
 		i++;
 	}
-	printf("%u: unknown instruction%s\n", line_number, opcode[1]);
+
+	printf("%u: unknown instruction %s\n", line_number, opcode[1]);
 	exit(EXIT_FAILURE);
 }

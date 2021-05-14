@@ -31,6 +31,11 @@ int main(int argc, char *argv[])
 
 	while ((nread = getline(&line, &len, stream)) != -1)
 	{
+		if (count_words(line) == 0)
+		{
+			line_number++;
+			continue;
+		}
 
 		line[nread - 1] = '\0';
 		result = tok_s(line);

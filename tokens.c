@@ -31,14 +31,14 @@ char **tok_s(char *command)
 	/*imprimir errores de memoria*/
 
 	/* pointer receiving tokenized command*/
-	token = strtok(command, " $\n");
+	token = strtok(command, " ");
 
 	/*as long as tokens is different from null it makes a copy of token in token*/
 	while (token != NULL)
 	{
 		tokens[position] = strdup(token);
 		/*end in null*/
-		token = strtok(NULL, " $\n");
+		token = strtok(NULL, " ");
 		position++;
 	}
 	tokens[position] = NULL;
@@ -54,16 +54,21 @@ char **tok_s(char *command)
 
 int count_words(char *string)
 {
-	int cont1, cont2 = 0;
+	int state = 0;
+	unsigned int contar = 0;
 
-	for (cont1 = 0; string[cont1]; cont1++)
+	while (*string)
 	{
-		if (string[cont1] == 32 && string[cont1 + 1] != 32 && string[cont1 + 1] != 0)
-			cont2++;
+
+		if (*string == ' ' || *string == '\n' || *string == '\t')
+			state = 0;
+
+		else if (state == 0)
+		{
+			state = 1;
+			++contar;
+		}
+		++string;
 	}
-
-	if (string[0] != 32)
-		cont2++;
-
-	return (cont2);
+	return (contar);
 }
