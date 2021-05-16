@@ -1,5 +1,4 @@
 #include "monty.h"
-
 /**
  * op_struck - Entry Point
  * @stack: variable
@@ -7,7 +6,6 @@
  * @opcode: variable
  * Return: 1
  */
-
 void op_struck(sttack_t **stack, unsigned int line_number, char **opcode)
 {
 	int i = 0, j = 0;
@@ -29,16 +27,13 @@ void op_struck(sttack_t **stack, unsigned int line_number, char **opcode)
 		{
 			if (strcmp(opcode[0], "push") == 0)
 			{
-				if (opcode[1] == NULL)
+				if (opcode[1] == NULL || (is_number(opcode[1]) == 0))
 				{
 					fprintf(stderr, "L%d: usage: push integer\n", line_number);
 					exit(EXIT_FAILURE);
 				}
-				if ((is_number(opcode[1]) == 0))
-				{
-					fprintf(stderr, "L%d: usage: push integer\n", line_number);
-					exit(EXIT_FAILURE);
-				}
+				if (opcode[1][0] == '-')
+					opcode[1]++;
 				j = atoi(opcode[1]);
 				variable_global.dato = j;
 			}
