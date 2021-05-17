@@ -16,7 +16,6 @@ void push_t(sttack_t **head, unsigned int line_number)
 	sttack_t *nuevo_nodo;
 	(void)line_number;
 	nuevo_nodo = add_node(variable_global.dato);
-	printf("%d\n", variable_global.dato);
 	if (nuevo_nodo != NULL)
 	{
 		nuevo_nodo->next = *head;
