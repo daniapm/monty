@@ -39,9 +39,12 @@ void op_struck(sttack_t **stack, unsigned int line_number, char **opcode)
 			}
 			func_list[i].f(stack, line_number);
 			return;
+			for (i = 0; opcode[i] != NULL; i++)
+				free(opcode[i]);
+			free(opcode);
 		}
 		i++;
 	}
-	printf("L%d: unknown instruction %s \n", line_number, opcode[0]);
+	printf("L%d: unknown instruction %s\n", line_number, opcode[0]);
 	exit(EXIT_FAILURE);
 }

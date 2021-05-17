@@ -37,7 +37,6 @@ char **tok_s(char *command)
 	/*as long as tokens is different from null it makes a copy of token in token*/
 	while (token != NULL)
 	{
-
 		tokens[position] = strdup(token);
 		/*end in null*/
 		token = strtok(NULL, " \n\t\a");
