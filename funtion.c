@@ -29,7 +29,7 @@ void op_struck(sttack_t **stack, unsigned int line_number, char **opcode)
 			{
 				if (opcode[1] == NULL || (is_number(opcode[1]) == 0))
 				{
-					fprintf(stderr, "L%d: usage: push integer\n", line_number);
+					fprintf(stderr, "L%d: usage: push integer \n", line_number);
 					exit(EXIT_FAILURE);
 				}
 				if (opcode[1][0] == '-')
@@ -45,6 +45,6 @@ void op_struck(sttack_t **stack, unsigned int line_number, char **opcode)
 		}
 		i++;
 	}
-	printf("L%d: unknown instruction %s\n", line_number, opcode[0]);
+	printf("L%d: unknown instruction %s \n", line_number, opcode[0]);
 	exit(EXIT_FAILURE);
 }
