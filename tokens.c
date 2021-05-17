@@ -32,7 +32,7 @@ char **tok_s(char *command)
 
 	/* pointer receiving tokenized command*/
 
-	token = strtok(command, " ");
+	token = strtok(command, " \n\t\a");
 
 	/*as long as tokens is different from null it makes a copy of token in token*/
 	while (token != NULL)
@@ -40,7 +40,7 @@ char **tok_s(char *command)
 
 		tokens[position] = strdup(token);
 		/*end in null*/
-		token = strtok(NULL, " ");
+		token = strtok(NULL, " \n\t\a");
 		position++;
 	}
 	tokens[position] = NULL;
