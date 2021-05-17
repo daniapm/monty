@@ -37,7 +37,7 @@ int main(int argc, char *argv[])
 		line[nread - 1] = '\0';
 		result = tok_s(line);
 		op_struck(&stack, line_number, result);
-		if (strcmp(result[0], "pint") == 0)
+		if (strcmp(result[0], "pop") == 0)
 		{
 			if ((is_number(result[1]) == 0))
 			{
