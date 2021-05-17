@@ -45,6 +45,6 @@ void op_struck(sttack_t **stack, unsigned int line_number, char **opcode)
 		}
 		i++;
 	}
-	printf("L%d: unknown instruction %s \n", line_number, opcode[0]);
+	fprintf(stderr, "L%d: unknown instruction %s\n", line_number, opcode[0]);
 	exit(EXIT_FAILURE);
 }
