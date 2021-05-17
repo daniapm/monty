@@ -39,9 +39,6 @@ void op_struck(sttack_t **stack, unsigned int line_number, char **opcode)
 			}
 			func_list[i].f(stack, line_number);
 			return;
-			for (i = 0; opcode[i] != NULL; i++)
-				free(opcode[i]);
-			free(opcode);
 		}
 		i++;
 	}

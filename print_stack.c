@@ -38,7 +38,7 @@ void pall_t(sttack_t **h, unsigned int line_number)
 }
 
 /**
- * is_number - verify if the input[1] is a number.
+ * is_number - verify if the result is a number.
  * @num: variable
  * Return: 1 if true and 0 if false.
  */
