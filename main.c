@@ -38,9 +38,9 @@ int main(int argc, char *argv[])
 		}
 
 		line[nread - 1] = '\0';
-		line_number++;
 		result = tok_s(line);
 		op_struck(&stack, line_number, result);
+		line_number++;
 	}
 	free(line);
 	fclose(stream);
